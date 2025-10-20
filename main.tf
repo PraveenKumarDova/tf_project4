@@ -5,6 +5,14 @@ terraform {
       version = "6.17.0"
     }
   }
+
+  backend "s3" {
+    bucket = "awsinfra-bucket"
+    key = "terraform.tfsate"
+    region = "eu-west-2"
+    dynamodb_table = "aws-table"
+
+  }
 }
 
 provider "aws" {
